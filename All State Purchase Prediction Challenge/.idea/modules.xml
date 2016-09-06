@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/all-state-purchase-prediction-challenge.iml" filepath="$PROJECT_DIR$/.idea/modules/all-state-purchase-prediction-challenge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/all-state-purchase-prediction-challenge-build.iml" filepath="$PROJECT_DIR$/.idea/modules/all-state-purchase-prediction-challenge-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data_model.iml" filepath="$PROJECT_DIR$/.idea/modules/data_model.iml" />
+    </modules>
+  </component>
+</project>
