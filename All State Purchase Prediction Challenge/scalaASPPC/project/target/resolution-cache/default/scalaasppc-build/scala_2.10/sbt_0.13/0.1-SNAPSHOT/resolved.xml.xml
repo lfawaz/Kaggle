@@ -4,7 +4,7 @@
 		module="scalaasppc-build"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160905215340"
+		publication="20160906100735"
 		e:sbtVersion="0.13" e:scalaVersion="2.10"
 	>
 		<description>
