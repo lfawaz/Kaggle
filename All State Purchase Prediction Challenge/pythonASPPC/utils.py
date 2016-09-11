@@ -84,14 +84,20 @@ def load_clean_data():
     car_value_dummies = pd.get_dummies(model_data['car_value'])
     car_value_data = model_data.join(car_value_dummies)[['customer_ID','shopping_pt',u'a', u'b',                           u'c',                 u'd',                 u'e',                           u'f',                 u'g',                 u'h',                           u'i']]
 
+    ##select all the records that were viewed, remove the record with record_type = 1
     original_model_data = model_data[['customer_ID','shopping_pt','day','location','group_size','homeowner','car_age',                                  'risk_factor','age_oldest','age_youngest','married_couple',                                  'C_previous','duration_previous', 'cost','hour','minute']][(model_data.record_type != 1)]
+    
+    ##merge all the dataset together to include the columns 
     print"merging all datasets..."
     all_new_data = pd.merge(car_value_data,                            pd.merge(state_data,                                     pd.merge(total_viewed_data,                                              pd.merge(is_last_data,is_final_data,                                                        on=['customer_ID','shopping_pt']),                                                           on=['customer_ID','shopping_pt']) ,                                                             on=['customer_ID','shopping_pt']),                                                                on=['customer_ID','shopping_pt'])
+    #select the final dataset 
     print"creating final model..."
     final_model_data = pd.merge(original_model_data,all_new_data,on=['customer_ID','shopping_pt'],how='inner')
 
+    #create the matrix with all the features
     X = np.asarray(final_model_data.ix[:, final_model_data.columns.difference(['customer_ID','shopping_pt','is_final'])])
 
+    #create the predictor array
     y = np.asarray(final_model_data.is_final)
     print"Done!"
     return X,y
